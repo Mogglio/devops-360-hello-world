@@ -1,12 +1,17 @@
 ---
 
+- name: Stop apache2
+  service:
+    state: stopped
+    name: apache2
+
 - name: Install Hello-world
   hosts: ubuntu
 
   roles:
    - hello-world
 
-- name: Copy hello-world vhost conf
+- name: Copy helloworld vhost conf
   copy:
     src: hello-world
     dest: /etc/nginx/sites-available/hello-world
@@ -28,3 +33,8 @@
   template:
     src: index.html.j2
     dest: /opt/hello-world/index.html
+
+- name: Restart
+  service:
+    state: restarted
+    name: nginx
