@@ -12,12 +12,6 @@
     name: nginx
     update_cache: yes
 
-- name: Install Hello-world
-  hosts: ubuntu
-
-  roles:
-   - hello-world
-
 - name: Copy helloworld vhost conf
   copy:
     src: hello-world
