@@ -14,14 +14,14 @@
 
 - name: Copy hello-world vhost conf
   copy:
-    src: helloworld
-    dest: /etc/nginx/sites-available/helloworld
+    src: hello-world
+    dest: /etc/nginx/sites-available/hello-world
 
 - name: Symlink hello-world in sites-enabled
   file:
     state: link
-    src: /etc/nginx/sites-available/helloworld
-    dest: /etc/nginx/sites-enabled/helloworld
+    src: /etc/nginx/sites-available/hello-world
+    dest: /etc/nginx/sites-enabled/hello-world
 
 - name: Create html folder
   file:
